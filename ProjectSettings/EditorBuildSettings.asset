@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Packages/com.wobblewares.kit/Core/WobbleFlipbook/Sample/Sample - WobbleFlipbook.unity
-    guid: ba0ab3ef2aea3492eb49b1e9c600e811
-  m_configObjects: {}
+    path: Assets/+Project/Prototype.unity
+    guid: d18acd509b915465989efad6c8457a0f
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 7d79932244f954b8ebeca62d58bc61b9,
+      type: 2}
