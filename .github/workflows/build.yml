@@ -4,13 +4,15 @@ on:
   push:
     tags:
       - '*'
+env:
+  PROJECT_NAME: dunglover
 jobs:
   build-macos:
     name: Build webGL
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      
+    
       # Checkout the project repository into ${{github.workspace}}/project
       - name: Checkout Unity project repository
         uses: actions/checkout@v4
@@ -24,9 +26,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: project/Library
-          key: library-unityprojecttemplate-webgl
+          key: library-${{env.PROJECT_NAME}}-webgl
           restore-keys: |
-            library-unityprojecttemplate
+            library-${{env.PROJECT_NAME}}
             library
       
       # Build WebGL standalone
@@ -54,7 +56,7 @@ jobs:
         uses: robpc/itchio-upload-action@v1
         with:
           path: build/
-          project: wobblewares/unity-project-template
+          project: wobblewares/${{env.PROJECT_NAME}}
           channel: webgl
           version: ${{ github.ref_name }}
           api-key: ${{ secrets.ITCH_API_KEY }}
