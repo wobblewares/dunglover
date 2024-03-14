@@ -355,6 +355,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 9182274366795438595, guid: 7dfc114d047534352b2c1ce6cc642dbe,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 7de8511ab219c48789781d26aeb0c66a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -774,7 +779,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -855,6 +860,21 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 2938029642766450064, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938029642766450064, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938029642766450064, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938029642766450064, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -908,6 +928,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beetle
       objectReference: {fileID: 0}
+    - target: {fileID: 6003424623981266536, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 6029546194172109385, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
