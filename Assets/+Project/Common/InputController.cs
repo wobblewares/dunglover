@@ -15,12 +15,17 @@ namespace Wobblewares.Prototyping
     {
         #region Private
 
-        private IControllable[] controllableObjects = null;
+        [SerializeField] private bool getControllablesOnInit = false;
+        private List<IControllable> controllableObjects = new List<IControllable>();
 
         #endregion
 
         #region Public API
 
+        public void AddControllable(IControllable controllable) => controllableObjects.Add(controllable);
+        
+        public void RemoveControllable(IControllable controllable) => controllableObjects.Remove(controllable);
+        
         /// <summary>
         /// Invoked when moving
         /// </summary>
@@ -52,7 +57,8 @@ namespace Wobblewares.Prototyping
 
         private void Awake()
         {
-            controllableObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IControllable>().ToArray();
+            if(getControllablesOnInit)
+                controllableObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IControllable>().ToList();
         }
 
         private void FixedUpdate()

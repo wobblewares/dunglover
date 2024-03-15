@@ -19,13 +19,15 @@ namespace Wobblewares.Prototyping
 		[SerializeField] private float maxTranslationPerSecond = 10.0f;
 		[SerializeField] private float maxDegreesPerSecond = 10.0f;
 
+		[SerializeField] private bool slowDownWhenNoInput = true;
 		[Header("Floating")] [SerializeField] private float rideHeight = 1.0f;
 		[SerializeField] private float rideRayLength = 1.0f;
 		[SerializeField] private float rideSpringStrength;
 		[SerializeField] private float rideSpringDamper;
 
-		[Header("Rotational Forces")] [SerializeField]
-		private float uprightJointSpringStrength;
+		[Header("Rotational Forces")] 
+		[SerializeField] private bool standUpright = true;
+		[SerializeField] private float uprightJointSpringStrength;
 
 		[SerializeField] private float uprightJointSpringDamper;
 		[SerializeField] private float minimumFacingVelocity = 0.1f;
@@ -57,6 +59,8 @@ namespace Wobblewares.Prototyping
 
 		#region Public API
 
+		public Rigidbody Rigidbody => rigidbody;
+		
 		public void Move(Vector3 direction)
 		{
 			// project movement direction onto surface to get movement relative to the surface
@@ -98,9 +102,11 @@ namespace Wobblewares.Prototyping
 
 			Float();
 
-			StandUpright();
+			if(standUpright)
+				StandUpright();
 
-			UpdateMovement();
+			if(slowDownWhenNoInput || _relativeDirection.magnitude > 0.0f) 
+				UpdateMovement();
 
 		}
 

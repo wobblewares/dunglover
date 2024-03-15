@@ -104,7 +104,12 @@ namespace Wobblewares.Prototyping
             CAPSULE
         }
 
-
+        public void TogglePhysics(bool enablePhysics)
+        {
+            rigidbody.isKinematic = !enablePhysics;
+            collider.enabled = enablePhysics;
+        }
+        
         #region Unity Functions
 
         private void Awake()
