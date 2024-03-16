@@ -1167,8 +1167,8 @@ MonoBehaviour:
   uprightJointSpringStrength: 0
   uprightJointSpringDamper: 1
   minimumFacingVelocity: 0.1
-  jumpForce: 10
-  jumpGroundSnapDelay: 0.5
+  jumpForce: 0
+  jumpGroundSnapDelay: 0
 --- !u!114 &1496316474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1787,8 +1787,8 @@ MonoBehaviour:
   uprightJointSpringStrength: 0
   uprightJointSpringDamper: 1
   minimumFacingVelocity: 0.1
-  jumpForce: 10
-  jumpGroundSnapDelay: 0.5
+  jumpForce: 0
+  jumpGroundSnapDelay: 0
 --- !u!114 &1980593768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,8 +1877,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986371916061318794, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
+      propertyPath: surfaceThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986371916061318794, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
+      propertyPath: groundedThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986371916061318794, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
       propertyPath: surfaceLayers.m_Bits
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446301951682335986, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
+      propertyPath: jumpForce
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5446301951682335986, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
