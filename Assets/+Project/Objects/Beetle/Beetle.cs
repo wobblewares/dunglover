@@ -1,5 +1,6 @@
 #nullable enable
 
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Wobblewares.Prototyping;
@@ -31,23 +32,27 @@ public class Beetle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (IsAttached)
         {
+            // TODO - calculate position on sphere and lerp that, but don't lerp distance away from the sphere
             Vector3 normalizedVelocity = _controlledActor.Rigidbody.velocity.normalized;
             Vector3 targetPosition = _controlledActor.transform.position - normalizedVelocity * _attachDistance;
             Quaternion targetRotation = Quaternion.LookRotation(normalizedVelocity, Vector3.up);
             // Move the beetle position based on the velocity of the controlled actor
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 10);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10);
-
-            // Temporarily detach on E key.
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Detach();
-            }
+            _controllableActor.Rigidbody.position = Vector3.Lerp(_controllableActor.Rigidbody.position, targetPosition, Time.deltaTime * 30);
+            _controllableActor.Rigidbody.rotation = Quaternion.Slerp(_controllableActor.Rigidbody.rotation, targetRotation, Time.deltaTime * 10);
         }   
+    }
+
+    private void Update()
+    {
+        // Temporarily detach on E key.
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Detach();
+        }
     }
 
     private void Attach(ControllableActor actor)
