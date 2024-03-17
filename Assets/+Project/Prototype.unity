@@ -979,6 +979,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WobbleShadow - Beetle
       objectReference: {fileID: 0}
+    - target: {fileID: 6204890850481025523, guid: 7dfc114d047534352b2c1ce6cc642dbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7476954966972978504, guid: 7dfc114d047534352b2c1ce6cc642dbe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1493,6 +1498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 074920752cf4d4d31b2b265b7333bd62,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 938789003946483357, guid: 074920752cf4d4d31b2b265b7333bd62,
         type: 3}
@@ -2144,8 +2154,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: 2f5f354de3fd442678c00a69ed9fc261,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7487168997609075203, guid: ef20a80c7fe304ced884deef942ff253,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2601,7 +2610,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1090871103}
+      objectReference: {fileID: 1980593762}
     - target: {fileID: 7158591104704490333, guid: cc15e3a8571412940a8e77bce91cf4e3,
         type: 3}
       propertyPath: distance
@@ -3101,20 +3110,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1863204652}
     m_Modifications:
-    - target: {fileID: 71315711534830561, guid: ef20a80c7fe304ced884deef942ff253,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 244414343423101265, guid: ef20a80c7fe304ced884deef942ff253,
         type: 3}
       propertyPath: m_Name
       value: Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595934487950031273, guid: ef20a80c7fe304ced884deef942ff253,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487168997609075203, guid: ef20a80c7fe304ced884deef942ff253,
         type: 3}
