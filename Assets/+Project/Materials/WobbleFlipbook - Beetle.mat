@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WobbleFlipbook - Backface Cull
-  m_Shader: {fileID: 4800000, guid: 4da01a7590ded4a63859f53cb718611c, type: 3}
+  m_Name: WobbleFlipbook - Beetle
+  m_Shader: {fileID: 4800000, guid: 0573faa876d25440198a65cd73bae4e3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
