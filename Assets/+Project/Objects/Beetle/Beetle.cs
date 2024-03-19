@@ -10,6 +10,8 @@ public class Beetle : MonoBehaviour
     #region Inspector
     [SerializeField] private float _attachDistance = 0.75f;
     [SerializeField] private float _detachForce = 10.0f;
+    [SerializeField] private float _positionLerp = 10.0f;
+    [SerializeField] private float _rotationLerp = 10.0f;
     #endregion
 
     #region Private
@@ -36,13 +38,16 @@ public class Beetle : MonoBehaviour
     {
         if (IsAttached)
         {
-            // TODO - calculate position on sphere and lerp that, but don't lerp distance away from the sphere
-            Vector3 normalizedVelocity = _controlledActor.Rigidbody.velocity.normalized;
-            Vector3 targetPosition = _controlledActor.transform.position - normalizedVelocity * _attachDistance;
-            Quaternion targetRotation = Quaternion.LookRotation(normalizedVelocity, Vector3.up);
+            // current direction
+            Vector3 currVecToBall = (_controllableActor.Rigidbody.position - _controlledActor.Rigidbody.position).normalized * _attachDistance;
+            Vector3 desiredVecToBall = (_controlledActor.Rigidbody.velocity.normalized + _controlledActor.GetComponent<PhysicalBody>().desiredDirection).normalized * _attachDistance;
+            Vector3 targetDirection = Vector3.Lerp(currVecToBall, desiredVecToBall, _positionLerp * Time.deltaTime);
+            
+
+            Quaternion targetRotation = Quaternion.LookRotation(-targetDirection, Vector3.up);
             // Move the beetle position based on the velocity of the controlled actor
-            _controllableActor.Rigidbody.position = Vector3.Lerp(_controllableActor.Rigidbody.position, targetPosition, Time.deltaTime * 30);
-            _controllableActor.Rigidbody.rotation = Quaternion.Slerp(_controllableActor.Rigidbody.rotation, targetRotation, Time.deltaTime * 10);
+            _controllableActor.Rigidbody.position = _controlledActor.transform.position + targetDirection.normalized * _attachDistance;
+            _controllableActor.Rigidbody.rotation = Quaternion.Slerp(_controllableActor.Rigidbody.rotation, targetRotation, Time.deltaTime * _rotationLerp);
         }   
     }
 

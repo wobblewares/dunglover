@@ -2173,6 +2173,16 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c216a2671cf3c4ec7af905f3155b891e, type: 2}
     - target: {fileID: 1498428930817352714, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
+      propertyPath: _positionLerp
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498428930817352714, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
+      propertyPath: _rotationLerp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498428930817352714, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
       propertyPath: _attachDistance
       value: 0.55
       objectReference: {fileID: 0}
