@@ -1,8 +1,6 @@
 #nullable enable
 
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Wobblewares.Prototyping;
 
 public class Beetle : MonoBehaviour
@@ -16,7 +14,7 @@ public class Beetle : MonoBehaviour
 
     #region Private
     private InputController _inputController;
-    private ControllableActor _controllableActor;
+    private ControllableActor _actor;
     private ControllableActor? _controlledActor = null;
     private PhysicalBody _physicalBody = null;
     private float _lastDetachTime = 0.0f;
@@ -25,11 +23,12 @@ public class Beetle : MonoBehaviour
     
     public bool IsAttached => _controlledActor != null;
     
+    
     // Start is called before the first frame update
     void Start()
     {
         _inputController = FindObjectOfType<InputController>();
-        _controllableActor = GetComponent<ControllableActor>();
+        _actor = GetComponent<ControllableActor>();
         _physicalBody = GetComponent<PhysicalBody>();
     }
 
@@ -38,16 +37,15 @@ public class Beetle : MonoBehaviour
     {
         if (IsAttached)
         {
-            // current direction
-            Vector3 currVecToBall = (_controllableActor.Rigidbody.position - _controlledActor.Rigidbody.position).normalized * _attachDistance;
-            Vector3 desiredVecToBall = (_controlledActor.Rigidbody.velocity.normalized + _controlledActor.GetComponent<PhysicalBody>().desiredDirection).normalized * _attachDistance;
+            // Update beetle position on ball based on ball velocity and desired input
+            Vector3 currVecToBall = (_actor.Rigidbody.position - _controlledActor.Rigidbody.position).normalized * _attachDistance;
+            Vector3 desiredVecToBall = (_controlledActor.Rigidbody.velocity.normalized + _controlledActor.PhysicalBody.desiredDirection).normalized * _attachDistance;
             Vector3 targetDirection = Vector3.Lerp(currVecToBall, desiredVecToBall, _positionLerp * Time.deltaTime);
+            _actor.Rigidbody.position = _controlledActor.transform.position + targetDirection.normalized * _attachDistance;
             
-
+            // Update rotation
             Quaternion targetRotation = Quaternion.LookRotation(-targetDirection, Vector3.up);
-            // Move the beetle position based on the velocity of the controlled actor
-            _controllableActor.Rigidbody.position = _controlledActor.transform.position + targetDirection.normalized * _attachDistance;
-            _controllableActor.Rigidbody.rotation = Quaternion.Slerp(_controllableActor.Rigidbody.rotation, targetRotation, Time.deltaTime * _rotationLerp);
+            _actor.Rigidbody.rotation = Quaternion.Slerp(_actor.Rigidbody.rotation, targetRotation, Time.deltaTime * _rotationLerp);
         }   
     }
 
@@ -69,7 +67,7 @@ public class Beetle : MonoBehaviour
         if (IsAttached) return; // Already attached
         
         // Transfer control
-        _inputController.RemoveControllable(_controllableActor);
+        _inputController.RemoveControllable(_actor);
         _inputController.AddControllable(actor);
         
         // Set controlled actor
@@ -86,15 +84,15 @@ public class Beetle : MonoBehaviour
         
         // Transfer control back
         _inputController.RemoveControllable(_controlledActor);
-        _inputController.AddControllable(_controllableActor);
+        _inputController.AddControllable(_actor);
 
         // Detach from the controllable
         transform.SetParent(null);
         _physicalBody.TogglePhysics(true);
-        _controllableActor.Rigidbody.velocity = Vector3.zero;
+        _actor.Rigidbody.velocity = Vector3.zero;
         
         // Apply a split force
-        _controllableActor.Rigidbody.AddForce(transform.forward * -_detachForce, ForceMode.Impulse);
+        _actor.Rigidbody.AddForce(transform.forward * -_detachForce, ForceMode.Impulse);
         
         // Set controlled actor to null
         _controlledActor = null;

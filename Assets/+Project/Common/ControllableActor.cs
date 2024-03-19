@@ -60,6 +60,7 @@ namespace Wobblewares.Prototyping
 		#region Public API
 
 		public Rigidbody Rigidbody => rigidbody;
+		public PhysicalBody PhysicalBody => physicalBody;
 		
 		public void Move(Vector3 direction)
 		{
