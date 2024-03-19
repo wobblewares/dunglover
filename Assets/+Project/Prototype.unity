@@ -2154,23 +2154,28 @@ PrefabInstance:
     - target: {fileID: 859485933225373070, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.7169812
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 859485933225373070, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7169812
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 859485933225373070, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.7169812
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 859485933225373070, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c216a2671cf3c4ec7af905f3155b891e, type: 2}
+    - target: {fileID: 1498428930817352714, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
+      propertyPath: _attachDistance
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 1632303537052794264, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2190,6 +2195,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938029642766450064, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938029642766450064, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2938029642766450064, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
@@ -2246,20 +2261,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beetle
       objectReference: {fileID: 0}
+    - target: {fileID: 5446301951682335986, guid: cfaaef2720fa9452fbee59309a0189f3,
+        type: 3}
+      propertyPath: rideHeight
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6716632696957633272, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.7169812
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6716632696957633272, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.7169812
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6716632696957633272, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.7169812
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6716632696957633272, guid: cfaaef2720fa9452fbee59309a0189f3,
         type: 3}
