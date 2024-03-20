@@ -76,6 +76,8 @@ public class Beetle : MonoBehaviour
         // Attach to the controllable
         transform.SetParent(actor.gameObject.transform);
         _physicalBody.TogglePhysics(false);
+        
+        Camera.main.transform.parent.GetComponent<OrbitCameraController>().target = _controlledActor.transform;
     }
 
     private void Detach()
@@ -97,6 +99,8 @@ public class Beetle : MonoBehaviour
         // Set controlled actor to null
         _controlledActor = null;
         _lastDetachTime = Time.time;
+
+        Camera.main.transform.parent.GetComponent<OrbitCameraController>().target = transform;
     }
     
     private void OnCollisionEnter(Collision collision)
