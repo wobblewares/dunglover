@@ -63,7 +63,6 @@ public class SpriteSwitcher : MonoBehaviour
         );
     }
     
-
     #endregion
 
     private SpriteInfo? GetTargetSpriteInfo(float dot)
