@@ -30,7 +30,16 @@ namespace Wobblewares.Prototyping
         {
             get { return surfaceState; }
         }
-
+        
+        /// <summary>
+        /// The point of last detected ground.
+        /// </summary>
+        public Vector3 GroundPoint
+        {
+            get { return groundPoint; }
+        }
+        
+        
         /// <summary>
         /// The normal of the ground. Only valid if
         /// surface state equals GROUNDED or MULTIPLE
@@ -160,6 +169,7 @@ namespace Wobblewares.Prototyping
         private new Rigidbody rigidbody = null;
         private new Collider collider = null;
         private SurfaceState surfaceState = SurfaceState.AIR;
+        private Vector3 groundPoint = Vector3.zero;
         private Vector3 groundNormal = Vector3.zero;
         private float lastContactTime = 0;
         private Vector3 surfaceNormal = Vector3.zero;
@@ -208,7 +218,7 @@ namespace Wobblewares.Prototyping
                     if (colliders.Length == 1 && colliders[0].attachedRigidbody == rigidbody)
                         return false;
 
-                    groundNormal = GetGroundNormal();
+                    (groundPoint, groundNormal) = GetGroundPositionAndNormal();
                     return true;
                 case CollisionShape.BOX:
                     Vector3 size = (collider as BoxCollider).size;
@@ -223,7 +233,7 @@ namespace Wobblewares.Prototyping
                     if (colliders.Length == 1 && colliders[0].attachedRigidbody == rigidbody)
                         return false;
 
-                    groundNormal = GetGroundNormal();
+                    (groundPoint, groundNormal) = GetGroundPositionAndNormal();
                     return true;
                 case CollisionShape.CAPSULE:
                     //only deals with uniform scale
@@ -243,7 +253,7 @@ namespace Wobblewares.Prototyping
                     if (colliders.Length == 1 && colliders[0].attachedRigidbody == rigidbody)
                         return false;
 
-                    groundNormal = GetGroundNormal();
+                    (groundPoint, groundNormal) = GetGroundPositionAndNormal();
                     return true;
 
             }
@@ -360,7 +370,7 @@ namespace Wobblewares.Prototyping
         /// <summary>
         /// Calculate the normal of the surface this object is sitting on
         /// </summary>
-        private Vector3 GetGroundNormal()
+        private (Vector3, Vector3) GetGroundPositionAndNormal()
         {
             //calculate normal
             RaycastHit[] hits = Physics.RaycastAll(rigidbody.position, Vector3.down, 1.1f, groundLayers);
@@ -370,10 +380,10 @@ namespace Wobblewares.Prototyping
                 if (hit.rigidbody == rigidbody)
                     continue;
 
-                return hit.normal;
+                return (hit.point, hit.normal);
             }
 
-            return Vector3.up;
+            return (Vector3.zero, Vector3.up);
         }
 
         private Vector3 GetCapsuleDirectionVector(CapsuleCollider capsuleCollider)

@@ -33,7 +33,7 @@ public class FaceCamera : MonoBehaviour
             transform.parent.forward;
         
         float dot = Vector3.Dot(-cameraForward, parentForward);
-        if (dot < minDotProduct || dot > maxDotProduct)
+        if (dot <= minDotProduct || dot > maxDotProduct)
         {
             if (hideWhenNotWithinDot && _spriteRenderer)
             {
