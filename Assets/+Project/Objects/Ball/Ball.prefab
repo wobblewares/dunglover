@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8116751037433802039}
   - component: {fileID: 8925559962965567714}
   - component: {fileID: 8468252519182983838}
+  - component: {fileID: 3069053271473904184}
+  - component: {fileID: 2364455715258113724}
   m_Layer: 6
   m_Name: Ball
   m_TagString: Untagged
@@ -211,6 +213,34 @@ MonoBehaviour:
   minimumFacingVelocity: 0.1
   jumpForce: 0
   jumpGroundSnapDelay: 0
+--- !u!114 &3069053271473904184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244414343423101265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b203f170470e44020a538b2918d34b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer: {fileID: 3663718581950879377}
+  _collider: {fileID: 6659003726099247495}
+  layers: []
+--- !u!114 &2364455715258113724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244414343423101265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb74e8c06f6e44df1a6ca7fa39221eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _debugLayerConfig: {fileID: 11400000, guid: 85b983449b175443f8b8ce6f65c1e65b, type: 2}
 --- !u!1001 &2347604053572330111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -422,3 +452,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20b54abf217d4aeda6544a23783955f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDotProduct: -1
+  maxDotProduct: 1
+  ignoreYInDotProduct: 0
+  lerpSpeed: 50
+  hideWhenNotWithinDot: 0
+  flipHorizontally: 0
